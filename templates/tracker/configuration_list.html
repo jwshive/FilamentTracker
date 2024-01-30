@@ -1,0 +1,28 @@
+<h2>Configurations</h2>
+
+{% regroup configs by filament as filament_list%}
+
+<ul>
+    {% for filament_brand in filament_list %}
+        <li>{{ filament_brand.grouper }}</li>
+        <table>
+            <tr>
+                <th>Filament Brand</th>
+                <th>Filament Type</th>
+                <th>Filament Color</th>
+                <th>Printer</th>
+                <th>Plate</th>
+            </tr>
+            {% for filament in filament_brand.list %}
+                <tr>
+                    <td>{{ filament.filament.manufacturer_name }}</td>
+                    <td>{{ filament.filament.filament_type }}</td>
+                    <td>{{ filament.filament.filament_color }}</td>
+                    <td>{{ filament.printer }}</td>
+                    <td>{{ filament.bed_type }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+{% endfor %}
+</ul>
+

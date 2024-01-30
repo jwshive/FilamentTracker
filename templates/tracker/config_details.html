@@ -1,0 +1,50 @@
+<table>
+    <tr>
+        <th>Bed Type</th>
+        <td>{{ config.bed_type }}</td>
+    </tr>
+    <tr>
+        <th>Filament Brand</th>
+        <td>{{ config.filament_brand.manufacturer_name }}</td>
+    </tr>
+    <tr>
+        <th>Printer</th>
+        <td>{{ config.printer.printer_make }} {{ config.printer.printer_model }}</td>
+    </tr>
+    <tr>
+        <th>Filament Type</th>
+        <td>{{ config.filament_type }}</td>
+    </tr>
+    <tr>
+        <th>Filament Color</th>
+        <td>{{ config.filament_color }}</td>
+    </tr>
+    <tr>
+        <th>Flow Rate</th>
+        <td>{{ config.flow_rate }}</td>
+    </tr>
+    <tr>
+        <th>Pressure Advance</th>
+        <td>{{ config.pressure_advance }}</td>
+    </tr>
+    <tr>
+        <th>First Layer Temp</th>
+        <td>{{ config.first_layer_temp }}</td>
+    </tr>
+    <tr>
+        <th>Other Layer Temp</th>
+        <td>{{ config.other_layer_temp }}</td>
+    </tr>
+    <tr>
+        <th>Plate Temp</th>
+        <td>{{ config.plate_temp }}</td>
+    </tr>
+    <tr>
+        <th>Max Volumetric Speed</th>
+        <td>{{ config.max_volumetric_speed }}</td>
+    </tr>
+    <tr>
+        <th>Image</th>
+        <td><img src="{{ MEDIA_URL }}/{{ config.filament_image }}" height="300" width="300"></td>
+    </tr>
+</table>

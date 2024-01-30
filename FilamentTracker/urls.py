@@ -18,9 +18,10 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path
 from django.conf import settings
-from tracker.views import FilamentConfigurations
+from tracker.views import get_configurations, filament_config_detail
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', FilamentConfigurations.as_view())
+    path('', get_configurations, name='all_configs'),
+    path('config/<int:id>', filament_config_detail, name='config_detail')
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
