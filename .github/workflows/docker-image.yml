@@ -20,4 +20,4 @@ jobs:
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag ${{ secrets.DOCKERHUB_USERNAME }}/filament-tracker:$(date +%s) --tag ${{ secrets.DOCKERHUB_USERNAME }}/filament-tracker:latest
     - name: Push the Docker Image
-      run: docker push --tag ${{ secrets.DOCKERHUB_USERNAME }}/filament-tracker:$(date +%s) --tag ${{ secrets.DOCKERHUB_USERNAME }}/filament-tracker:latest
+      run: docker push -a ${{ secrets.DOCKERHUB_USERNAME }}/filament-tracker
