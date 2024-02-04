@@ -14,14 +14,13 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path
-from django.conf import settings
-from tracker.views import get_configurations, filament_config_detail
+from tracker.views import get_configurations, filament_config_detail, get_printers
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', get_configurations, name='all_configs'),
+    path('', get_configurations, name='filament_config_list'),
+    path('printers/', get_printers, name='printer_config_list'),
     path('config/<int:id>', filament_config_detail, name='config_detail')
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]

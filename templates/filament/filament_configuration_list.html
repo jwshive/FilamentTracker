@@ -5,7 +5,7 @@
     </head>
 
     <body>
-        <h2>Configurations</h2>
+        <h2>Filament Print Profiles</h2>
 
         {% regroup configs by filament as filament_list%}
 
@@ -41,7 +41,7 @@
                                 <td>{{ filament.other_layer_temp }}</td>
                                 <td>{{ filament.plate_temp }}</td>
                                 <td>{{ filament.max_volumetric_speed }}</td>
-                                <td><img src="{{ filament.filament.filament_image.url }}" height="150" width="150" alt=""></td>
+                                <td><img src="{{ filament.filament.filament_image }}" height="150" width="150" alt=""></td>
                             </tr>
                         {% endfor %}
                     {% endfor %}
