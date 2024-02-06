@@ -16,6 +16,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf import settings
+from django.conf.urls.static import static
 from tracker.views import get_configurations, filament_config_detail, get_printers
 
 urlpatterns = [
@@ -23,4 +25,4 @@ urlpatterns = [
     path('', get_configurations, name='filament_config_list'),
     path('printers/', get_printers, name='printer_config_list'),
     path('config/<int:id>', filament_config_detail, name='config_detail')
-]
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
