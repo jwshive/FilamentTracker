@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Printers, PrintBeds, Filaments, FilamentTypes, FilamentConfiguration
+from .models import Printers, PrintBeds, Filaments, FilamentTypes, FilamentConfiguration, PrinterConfiguration
 
 
 class PrintersAdmin(admin.ModelAdmin):
@@ -15,6 +15,7 @@ class FilamentsAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Printers, PrintersAdmin)
+admin.site.register(PrinterConfiguration)
 admin.site.register(FilamentConfiguration, FilamentConfigurationAdmin)
 admin.site.register(PrintBeds)
 admin.site.register(Filaments)

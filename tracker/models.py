@@ -16,6 +16,17 @@ class Printers(models.Model):
         verbose_name_plural = 'Printers'
 
 
+class PrinterConfiguration(models.Model):
+    config_name = models.CharField(max_length=255)
+    printer = models.ForeignKey(Printers, on_delete=models.DO_NOTHING, related_name='printer')
+
+    def __str__(self):
+        return '{} for {}'.format(self.config_name, self.printer)
+
+    class Meta:
+        verbose_name_plural = 'Printer Configurations'
+
+
 class PrintBeds(models.Model):
     bed_type = models.CharField(max_length=255)
 
@@ -40,7 +51,7 @@ class Filaments(models.Model):
     manufacturer_name = models.CharField(max_length=255, unique=True)
     filament_type = models.ForeignKey(FilamentTypes, on_delete=models.DO_NOTHING)
     filament_color = models.CharField(max_length=255)
-    filament_image = models.ImageField(upload_to='filament_images')
+    filament_image = models.URLField(max_length=500)
 
     def __str__(self):
         return '{} {} {}'.format(self.manufacturer_name, self.filament_type, self.filament_color)
